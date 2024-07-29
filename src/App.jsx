@@ -3,7 +3,7 @@ import { BrowserRouter as Router, Routes, Route } from 'react-router-dom';
 import Header from './components/Header';
 import HomePage from './components/HomePage';
 import Statistics from './components/Statistics';
-import ContactUs from './components/ContactUs';
+import ContactUs from './pages/ContactUs';
 
 const App = () => {
   return (
