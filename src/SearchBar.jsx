@@ -8,10 +8,10 @@ const SearchBar = () => {
       <div className="relative w-full max-w-lg">
         <input
           type="text"
-          className="border border-gray-300 rounded-lg p-2 pl-10 w-full hover:border-blue-400 transition-colors duration-200"
+          className="border border-gray-300 rounded-lg p-2 pl-10 w-full hover:border-blue-600 transition-colors duration-300"
           placeholder="Search for Job Title"
         />
-        <FaSearch className="absolute top-2 left-3 text-gray-400 hover:text-blue-400 transition-colors duration-200" />
+        <FaSearch className="absolute top-2 right-3 text-gray-400 hover:text-blue-400 transition-colors duration-200" />
       </div>
     </div>
   );
