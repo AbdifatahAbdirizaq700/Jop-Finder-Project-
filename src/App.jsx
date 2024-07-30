@@ -5,6 +5,8 @@ import HomePage from './components/HomePage';
 import Statistics from './components/Statistics';
 import ContactUs from './pages/ContactUs';
 import HeroPage from './pages/HeroPage ';
+import Services from './components/Services';
+import News from './components/News';
 
 
 const App = () => {
@@ -15,6 +17,8 @@ const App = () => {
       <Routes>
         <Route path="/" element={<HomePage />} />
         <Route path="/statistics" element={<Statistics />} />
+        <Route path="/Services" element={<Services />} />
+        <Route path="/News" element={<News />} />
         <Route path="/contact" element={<ContactUs />} />
       </Routes>
       
