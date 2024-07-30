@@ -1,38 +1,41 @@
 // src/components/HomePage.jsx
-import React, { useState } from 'react';
-import JobDescription from './JobDescription';
-import PopularSearches from '../PopularSearches ';
-import FilterSidebar from './FilterSidebar';
-import JobList from '../JobList';
+import React, { useState, useEffect } from 'react';
+import axios from 'axios';
 import SearchBar from '../SearchBar';
-
+import PopularSearches from '../PopularSearches ';
+import JobDescription from './JobDescription';
+import JobList from '../JobList';
 
 
 const HomePage = () => {
-  const [selectedJob, setSelectedJob] = useState(null);
+  const [jobs, setJobs] = useState([]);
+  const [filteredJobs, setFilteredJobs] = useState([]);
 
-  const handleJobClick = (job) => {
-    setSelectedJob(job);
-  };
+  useEffect(() => {
+    // Fetch jobs from the server
+    axios.get('http://localhost:5000/api/jobs')
+      .then((response) => {
+        setJobs(response.data);
+        setFilteredJobs(response.data);
+      })
+      .catch((error) => console.error('Error fetching jobs:', error));
+  }, []);
 
-  const handleCloseDescription = () => {
-    setSelectedJob(null);
+  const handleSearch = (searchTerm) => {
+    const filtered = jobs.filter((job) =>
+      job.title.toLowerCase().includes(searchTerm.toLowerCase())
+    );
+    setFilteredJobs(filtered);
   };
 
   return (
-    <div className="container mx-auto p-4">
-      <h1 className="text-3xl font-bold text-center mb-4">Let's Find you the Perfect Job!</h1>
-      <p className="text-center mb-6">Learn ipsum dolor sit amet consectetur adipisicing elit. Harum excepturi debitis veniam.</p>
-      <SearchBar />
+    <div>
+      <SearchBar onSearch={handleSearch} />
       <PopularSearches />
-
-      <div className="flex mt-6">
-        <FilterSidebar />
-        <div className="flex-1 ml-4">
-          <JobList onJobClick={handleJobClick} />
-        </div>
+      <div className="flex">
+        <JobDescription />
+        <JobList jobs={filteredJobs} />
       </div>
-      {selectedJob && <JobDescription job={selectedJob} onClose={handleCloseDescription} />}
     </div>
   );
 };
