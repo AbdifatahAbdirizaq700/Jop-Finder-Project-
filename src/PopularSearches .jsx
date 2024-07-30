@@ -1,21 +1,19 @@
+// src/components/PopularSearches.jsx
 import React from 'react';
 
-const PopularSearches = () => {
-  const searches = ['Software Engineer', 'Data Scientist', 'Product Manager', 'UX Designer'];
+const popularTerms = ['React', 'Vue', 'Angular', 'Mid-Level', 'Senior', 'Laravel'];
 
+const PopularSearches = () => {
   return (
-    <div className="max-w-md mx-auto py-4">
-      <h2 className="text-lg font-semibold mb-2">Popular Searches</h2>
-      <div className="flex flex-wrap gap-2">
-        {searches.map((search, index) => (
-          <button
-            key={index}
-            className="bg-gray-200 hover:bg-gray-300 text-gray-800 py-2 px-4 rounded-lg"
-          >
-            {search}
-          </button>
-        ))}
-      </div>
+    <div className="flex justify-center space-x-2 mb-4">
+      {popularTerms.map((term, index) => (
+        <button
+          key={index}
+          className="bg-gray-200 rounded-full px-4 py-1 text-sm font-semibold text-gray-700 hover:bg-gray-300"
+        >
+          {term}
+        </button>
+      ))}
     </div>
   );
 };
