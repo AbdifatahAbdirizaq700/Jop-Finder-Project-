@@ -2,6 +2,10 @@
 import React from 'react';
 
 const JobDescription = ({ job, onClose }) => {
+  if (!job) {
+    return null; // Or a loading spinner, or a message
+  }
+
   return (
     <div className="fixed inset-0 bg-gray-800 bg-opacity-50 flex justify-center items-center">
       <div className="bg-white rounded-lg p-6 w-full max-w-lg">

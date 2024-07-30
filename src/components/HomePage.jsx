@@ -10,15 +10,18 @@ import JobList from '../JobList';
 const HomePage = () => {
   const [jobs, setJobs] = useState([]);
   const [filteredJobs, setFilteredJobs] = useState([]);
+  const [selectedJob, setSelectedJob] = useState(null);
 
   useEffect(() => {
-    // Fetch jobs from the server
     axios.get('http://localhost:5000/api/jobs')
       .then((response) => {
         setJobs(response.data);
         setFilteredJobs(response.data);
       })
-      .catch((error) => console.error('Error fetching jobs:', error));
+      .catch((error) => {
+        console.error('Error fetching jobs:', error);
+        // Optionally display an error message to the user
+      });
   }, []);
 
   const handleSearch = (searchTerm) => {
@@ -28,13 +31,23 @@ const HomePage = () => {
     setFilteredJobs(filtered);
   };
 
+  const handleJobClick = (job) => {
+    setSelectedJob(job);
+  };
+
+  const handleCloseDescription = () => {
+    setSelectedJob(null);
+  };
+
   return (
     <div>
       <SearchBar onSearch={handleSearch} />
       <PopularSearches />
       <div className="flex">
-        <JobDescription />
-        <JobList jobs={filteredJobs} />
+        {selectedJob && (
+          <JobDescription job={selectedJob} onClose={handleCloseDescription} />
+        )}
+        <JobList jobs={filteredJobs} onJobClick={handleJobClick} />
       </div>
     </div>
   );
