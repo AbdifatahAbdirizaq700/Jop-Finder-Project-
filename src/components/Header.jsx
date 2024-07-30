@@ -6,8 +6,8 @@ const Header = () => {
   return (
     <div className="flex items-center justify-between p-4 bg-white border-b border-gray-200 dark:bg-gray-800 dark:border-gray-700">
       <div className="flex items-center">
-        <img src="https://placehold.co/40x40/eeeeee/4B5563/png?text=Logo" alt="Logo" className="mr-3 h-8" />
-        <span className="text-2xl font-semibold text-gray-900 dark:text-white">MyWebsite</span>
+        <img src="Images/ww.svg" alt="Logo" className="mr-3 h-8" />
+        <span className="text-2xl font-semibold text-gray-900 dark:text-white">Mulkiile jobfinder</span>
       </div>
       <div className="hidden md:flex space-x-8">
         <Link to="/" className="text-gray-900 dark:text-white hover:underline">Home</Link>
