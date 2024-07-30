@@ -1,9 +1,9 @@
 // src/components/HomePage.jsx
 import React from 'react';
-import SearchBar from './components/SearchBar';
-import PopularSearches from './components/PopularSearches';
-import JobSidebar from './components/JobSidebar';
-import JobList from './components/JobList';
+import SearchBar from '../SearchBar';
+import PopularSearches from '../PopularSearches ';
+import JobSidebar from '../JobSidebar';
+import JobList from '../JobList';
 
 const HomePage = () => {
   return (
