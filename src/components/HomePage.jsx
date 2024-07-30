@@ -1,13 +1,23 @@
 // src/components/HomePage.jsx
 import React, { useState } from 'react';
-import SearchBar from './SearchBar';
-import PopularSearches from './PopularSearches';
-import JobList from './JobList';
-import FilterSidebar from './FilterSidebar';
 import JobDescription from './JobDescription';
+import PopularSearches from '../PopularSearches ';
+import FilterSidebar from './FilterSidebar';
+import JobList from '../JobList';
+import SearchBar from '../SearchBar';
+
+
 
 const HomePage = () => {
   const [selectedJob, setSelectedJob] = useState(null);
+
+  const handleJobClick = (job) => {
+    setSelectedJob(job);
+  };
+
+  const handleCloseDescription = () => {
+    setSelectedJob(null);
+  };
 
   return (
     <div className="container mx-auto p-4">
@@ -19,10 +29,10 @@ const HomePage = () => {
       <div className="flex mt-6">
         <FilterSidebar />
         <div className="flex-1 ml-4">
-          <JobList onJobClick={setSelectedJob} />
+          <JobList onJobClick={handleJobClick} />
         </div>
       </div>
-      {selectedJob && <JobDescription job={selectedJob} />}
+      {selectedJob && <JobDescription job={selectedJob} onClose={handleCloseDescription} />}
     </div>
   );
 };
