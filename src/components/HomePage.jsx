@@ -1,13 +1,14 @@
 // src/components/HomePage.jsx
-import React from 'react';
-
-
-import SearchBar from '../SearchBar';
-import PopularSearches from '../PopularSearches ';
+import React, { useState } from 'react';
+import SearchBar from './SearchBar';
+import PopularSearches from './PopularSearches';
+import JobList from './JobList';
 import FilterSidebar from './FilterSidebar';
-import JobList from '../JobList';
+import JobDescription from './JobDescription';
 
 const HomePage = () => {
+  const [selectedJob, setSelectedJob] = useState(null);
+
   return (
     <div className="container mx-auto p-4">
       <h1 className="text-3xl font-bold text-center mb-4">Let's Find you the Perfect Job!</h1>
@@ -18,9 +19,10 @@ const HomePage = () => {
       <div className="flex mt-6">
         <FilterSidebar />
         <div className="flex-1 ml-4">
-          <JobList />
+          <JobList onJobClick={setSelectedJob} />
         </div>
       </div>
+      {selectedJob && <JobDescription job={selectedJob} />}
     </div>
   );
 };
