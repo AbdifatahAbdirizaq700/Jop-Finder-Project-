@@ -2,74 +2,53 @@
 import React, { useState } from 'react';
 
 const FilterSidebar = ({ onFilter }) => {
-  const [filters, setFilters] = useState({
-    contract: '',
-    location: '',
-    company: ''
-  });
+  const [contractType, setContractType] = useState('');
+  const [location, setLocation] = useState('');
 
-  const handleChange = (e) => {
-    const { name, value } = e.target;
-    setFilters({
-      ...filters,
-      [name]: value
-    });
+  const handleContractTypeChange = (e) => {
+    setContractType(e.target.value);
+    onFilter({ contractType: e.target.value, location });
   };
 
-  const applyFilters = () => {
-    onFilter(filters);
+  const handleLocationChange = (e) => {
+    setLocation(e.target.value);
+    onFilter({ contractType, location: e.target.value });
   };
 
   return (
-    <div className="border border-gray-300 rounded-lg p-4">
-      <h2 className="text-xl font-semibold mb-4">Filters</h2>
-      
+    <div className="w-90 bg-white p-4 rounded-lg shadow-md">
+      <h3 className="text-lg font-semibold mb-4 text-gray-900">Filter Jobs</h3>
       <div className="mb-4">
-        <label className="block text-gray-700">Contract Type</label>
+        <label className="block text-gray-700 mb-2">Contract Type</label>
         <select
-          name="contract"
-          value={filters.contract}
-          onChange={handleChange}
-          className="border border-gray-300 rounded-lg p-2 w-full"
+          className="w-full p-2 border border-gray-300 rounded-lg"
+          value={contractType}
+          onChange={handleContractTypeChange}
         >
           <option value="">All</option>
-          <option value="Full Time">Full Time</option>
-          <option value="Part Time">Part Time</option>
-          <option value="Freelance">Freelance</option>
-          <option value="Internship">Internship</option>
+          <option value="Full-Time">Full-Time</option>
+          <option value="Part-Time">Part-Time</option>
+          <option value="Contract">Contract</option>
         </select>
       </div>
-
       <div className="mb-4">
-        <label className="block text-gray-700">Location</label>
+        <label className="block text-gray-700 mb-2">Location</label>
         <input
           type="text"
-          name="location"
-          value={filters.location}
-          onChange={handleChange}
-          className="border border-gray-300 rounded-lg p-2 w-full"
+          className="w-full p-2 border border-gray-300 rounded-lg"
+          value={location}
+          onChange={handleLocationChange}
           placeholder="Enter location"
         />
       </div>
-
-      <div className="mb-4">
-        <label className="block text-gray-700">Company</label>
-        <input
-          type="text"
-          name="company"
-          value={filters.company}
-          onChange={handleChange}
-          className="border border-gray-300 rounded-lg p-2 w-full"
-          placeholder="Enter company name"
-        />
+      <div>
+        <button
+          className="w-full bg-blue-500 text-white py-2 rounded-lg hover:bg-blue-600 transition-colors duration-300"
+          onClick={() => onFilter({ contractType, location })}
+        >
+          Apply Filters
+        </button>
       </div>
-
-      <button
-        onClick={applyFilters}
-        className="bg-blue-500 text-white px-4 py-2 rounded-lg hover:bg-blue-600 transition-colors duration-300"
-      >
-        Apply Filters
-      </button>
     </div>
   );
 };
