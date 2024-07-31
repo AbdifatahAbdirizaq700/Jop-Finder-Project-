@@ -8,6 +8,7 @@ import Services from './components/Services';
 import News from './components/News';
 import HeroPage from './pages/HeroPage ';
 import ContactUs from './pages/ContactUs';
+import Footer from './components/Footer';
 
 const App = () => {
   return (
@@ -21,6 +22,8 @@ const App = () => {
         <Route path="/news" element={<News />} />
         <Route path="/contact" element={<ContactUs />} />
       </Routes>
+    <Footer />
+
     </Router>
   );
 };
