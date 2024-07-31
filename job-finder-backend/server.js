@@ -1,10 +1,9 @@
-// server.js
 const express = require('express');
 const cors = require('cors');
 const app = express();
 const PORT = 5000;
 
-// Updated job data with new salary values
+// Updated job data with more entries
 let jobs = [
   {
     id: 1,
@@ -13,7 +12,7 @@ let jobs = [
     contract: 'Full Time',
     location: 'Remote',
     company: 'Dayon Tech',
-    salary: "$120,000 - $150,000" // Updated salary
+    salary: "$120,000 - $150,000"
   },
   {
     id: 2,
@@ -22,7 +21,7 @@ let jobs = [
     contract: 'Part Time',
     location: 'Hybrid',
     company: 'Tech Solutions',
-    salary: "$90,000 - $110,000" // Updated salary
+    salary: "$90,000 - $110,000"
   },
   {
     id: 3,
@@ -31,7 +30,7 @@ let jobs = [
     contract: 'Internship',
     location: 'On-site',
     company: 'Creative Minds',
-    salary: "$70,000 - $90,000" // Updated salary
+    salary: "$70,000 - $90,000"
   },
   {
     id: 4,
@@ -40,7 +39,7 @@ let jobs = [
     contract: 'Full Time',
     location: 'Remote',
     company: 'Innovatech',
-    salary: "$130,000 - $160,000" // Updated salary
+    salary: "$130,000 - $160,000"
   },
   {
     id: 5,
@@ -49,7 +48,7 @@ let jobs = [
     contract: 'Freelance',
     location: 'Remote',
     company: 'Design Studio',
-    salary: "$100,000 - $130,000" // Updated salary
+    salary: "$100,000 - $130,000"
   },
   {
     id: 6,
@@ -58,7 +57,7 @@ let jobs = [
     contract: 'Full Time',
     location: 'On-site',
     company: 'Data Insights Inc.',
-    salary: "$140,000 - $180,000" // Updated salary
+    salary: "$140,000 - $180,000"
   },
   {
     id: 7,
@@ -67,7 +66,7 @@ let jobs = [
     contract: 'Full Time',
     location: 'Hybrid',
     company: 'CloudWorks',
-    salary: "$120,000 - $150,000" // Updated salary
+    salary: "$120,000 - $150,000"
   },
   {
     id: 8,
@@ -76,7 +75,7 @@ let jobs = [
     contract: 'Full Time',
     location: 'Remote',
     company: 'Backend Solutions',
-    salary: "$110,000 - $140,000" // Updated salary
+    salary: "$110,000 - $140,000"
   },
   {
     id: 9,
@@ -85,7 +84,7 @@ let jobs = [
     contract: 'Full Time',
     location: 'On-site',
     company: 'Product Innovations',
-    salary: "$130,000 - $160,000" // Updated salary
+    salary: "$130,000 - $160,000"
   },
   {
     id: 10,
@@ -94,8 +93,107 @@ let jobs = [
     contract: 'Part Time',
     location: 'Hybrid',
     company: 'Marketing Solutions',
-    salary: "$80,000 - $100,000" // Updated salary
+    salary: "$80,000 - $100,000"
   },
+  {
+    id: 11,
+    title: 'Cybersecurity Analyst',
+    description: 'Monitor and protect networks and systems from security breaches. Conduct vulnerability assessments and implement security measures. Respond to security incidents and conduct investigations.',
+    contract: 'Full Time',
+    location: 'Remote',
+    company: 'SecureTech',
+    salary: "$100,000 - $130,000"
+  },
+  {
+    id: 12,
+    title: 'Mobile App Developer (iOS)',
+    description: 'Develop and maintain iOS applications. Collaborate with designers and back-end developers to create seamless user experiences. Optimize applications for performance and user engagement.',
+    contract: 'Full Time',
+    location: 'Remote',
+    company: 'AppCreators',
+    salary: "$110,000 - $140,000"
+  },
+  {
+    id: 13,
+    title: 'Graphic Designer',
+    description: 'Create visual concepts to communicate ideas that inspire and inform. Develop graphics for websites, social media, and print media. Work with marketing teams to develop brand identities.',
+    contract: 'Freelance',
+    location: 'Remote',
+    company: 'Creative Agency',
+    salary: "$60,000 - $80,000"
+  },
+  {
+    id: 14,
+    title: 'Business Analyst',
+    description: 'Analyze business processes and identify areas for improvement. Work with stakeholders to gather requirements and create detailed documentation. Support project management and implementation efforts.',
+    contract: 'Full Time',
+    location: 'On-site',
+    company: 'Business Solutions Co.',
+    salary: "$90,000 - $120,000"
+  },
+  {
+    id: 15,
+    title: 'Cloud Architect',
+    description: 'Design and implement cloud-based solutions for businesses. Work with cross-functional teams to ensure scalability and security. Stay up-to-date with the latest cloud technologies and best practices.',
+    contract: 'Full Time',
+    location: 'Remote',
+    company: 'CloudWorks',
+    salary: "$150,000 - $180,000"
+  },
+  {
+    id: 16,
+    title: 'Technical Writer',
+    description: 'Create technical documentation for software products and services. Work with developers and product managers to gather information and write clear, concise documentation. Ensure documentation is accurate and up-to-date.',
+    contract: 'Part Time',
+    location: 'Remote',
+    company: 'TechDocs Inc.',
+    salary: "$70,000 - $90,000"
+  },
+  {
+    id: 17,
+    title: 'Software Engineer (Python)',
+    description: 'Develop and maintain software applications using Python. Work on both front-end and back-end components. Collaborate with data scientists and machine learning engineers to build data-driven applications.',
+    contract: 'Full Time',
+    location: 'On-site',
+    company: 'AI Solutions',
+    salary: "$120,000 - $150,000"
+  },
+  {
+    id: 18,
+    title: 'System Administrator',
+    description: 'Maintain and manage IT systems and infrastructure. Monitor system performance and troubleshoot issues. Implement security measures and ensure system backups are in place.',
+    contract: 'Full Time',
+    location: 'Hybrid',
+    company: 'IT Services Co.',
+    salary: "$80,000 - $100,000"
+  },
+  {
+    id: 19,
+    title: 'Machine Learning Engineer',
+    description: 'Develop and implement machine learning models. Work with data scientists to preprocess data and build predictive models. Deploy models into production and monitor their performance.',
+    contract: 'Full Time',
+    location: 'Remote',
+    company: 'DataScience Lab',
+    salary: "$140,000 - $170,000"
+  },
+  {
+    id: 20,
+    title: 'Sales Manager',
+    description: 'Lead and manage a sales team to achieve sales targets. Develop sales strategies and plans. Build and maintain relationships with key customers and partners.',
+    contract: 'Full Time',
+    location: 'On-site',
+    company: 'SalesCo',
+    salary: "$100,000 - $130,000"
+  },
+  {
+    id: 21,
+    title: 'Content Creator',
+    description: 'Create engaging content for social media, blogs, and websites. Develop content strategies to reach target audiences. Collaborate with marketing and design teams to produce high-quality content.',
+    contract: 'Freelance',
+    location: 'Remote',
+    company: 'ContentHub',
+    salary: "$50,000 - $70,000"
+  }
 ];
 
 app.use(cors());
