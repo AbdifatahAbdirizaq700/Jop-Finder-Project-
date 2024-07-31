@@ -1,17 +1,18 @@
 // src/components/HomePage.jsx
 import React, { useState, useEffect } from 'react';
 import axios from 'axios';
-import FilterSidebar from './FilterSidebar';
 import SearchBar from '../SearchBar';
 import PopularSearches from '../PopularSearches ';
 import JobDescription from './JobDescription';
 import JobList from '../JobList';
 
 
+
 const HomePage = () => {
   const [jobs, setJobs] = useState([]);
   const [filteredJobs, setFilteredJobs] = useState([]);
   const [selectedJob, setSelectedJob] = useState(null);
+  const [savedJobs, setSavedJobs] = useState([]);
 
   useEffect(() => {
     axios.get('http://localhost:5000/api/jobs')
@@ -48,16 +49,22 @@ const HomePage = () => {
     setSelectedJob(null);
   };
 
+  const handleSaveJob = (job) => {
+    if (!savedJobs.some(savedJob => savedJob.id === job.id)) {
+      setSavedJobs([...savedJobs, job]);
+    }
+  };
+
   return (
     <div className="flex">
-      <FilterSidebar onFilter={handleFilter} />
-      <div className="flex-1">
+      <FilterSidebar onFilter={handleFilter} savedJobs={savedJobs} />
+      <div className="flex-1 p-4">
         <SearchBar onSearch={handleSearch} />
         <PopularSearches />
         {selectedJob && (
           <JobDescription job={selectedJob} onClose={handleCloseDescription} />
         )}
-        <JobList jobs={filteredJobs} onJobClick={handleJobClick} />
+        <JobList jobs={filteredJobs} onJobClick={handleJobClick} onSaveJob={handleSaveJob} />
       </div>
     </div>
   );
