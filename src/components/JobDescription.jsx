@@ -1,7 +1,7 @@
 // src/components/JobDescription.jsx
 import React from 'react';
 
-const JobDescription = ({ job, onClose }) => {
+const JobDescription = ({ job, onClose, onSave }) => {
   if (!job) {
     return null; // Or a loading spinner, or a message
   }
@@ -11,7 +11,10 @@ const JobDescription = ({ job, onClose }) => {
       <div className="bg-white rounded-lg p-6 w-full max-w-lg">
         <h2 className="text-2xl font-bold mb-4">{job.title}</h2>
         <p className="mb-4">{job.description}</p>
-        <button className="bg-blue-500 text-white px-4 py-2 rounded-lg hover:bg-blue-600 transition-colors duration-300">
+        <button
+          className="bg-blue-500 text-white px-4 py-2 rounded-lg hover:bg-blue-600 transition-colors duration-300"
+          onClick={() => onSave(job)} // Pass job to onSave
+        >
           Apply Now
         </button>
         <button

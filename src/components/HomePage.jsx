@@ -4,6 +4,7 @@ import axios from 'axios';
 import SearchBar from '../SearchBar';
 import PopularSearches from '../PopularSearches ';
 import JobDescription from './JobDescription';
+import FilterSidebar from './FilterSidebar';
 import JobList from '../JobList';
 
 
@@ -20,7 +21,10 @@ const HomePage = () => {
         setJobs(response.data);
         setFilteredJobs(response.data);
       })
-      .catch((error) => console.error('Error fetching jobs:', error));
+      .catch((error) => {
+        console.error('Error fetching jobs:', error);
+        
+      });
   }, []);
 
   const handleSearch = (searchTerm) => {
