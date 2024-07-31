@@ -16,18 +16,25 @@ const App = () => {
   return (
     <Router>
       <Header />
-      <HeroPage />
-      <Statistics />
       <Routes>
-        <Route path="/" element={<HomePage />} />
+        <Route
+          path="/"
+          element={
+            <>
+              <HeroPage />
+              <Statistics />
+              <HomePage />
+            </>
+          }
+        />
         <Route path="/services" element={<Services />} />
         <Route path="/news" element={<News />} />
         <Route path="/contact" element={<ContactUs />} />
-
       </Routes>
       <Footer />
     </Router>
   );
 };
+
 
 export default App;
