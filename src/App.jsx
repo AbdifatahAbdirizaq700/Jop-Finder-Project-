@@ -6,9 +6,10 @@ import HomePage from './components/HomePage';
 import Statistics from './components/Statistics';
 import Services from './components/Services';
 import News from './components/News';
-import HeroPage from './pages/HeroPage';
+
 import ContactUs from './pages/ContactUs';
 import Footer from './components/Footer';
+import HeroPage from './pages/HeroPage ';
 
 
 const App = () => {

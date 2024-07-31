@@ -23,6 +23,7 @@ const HomePage = () => {
       })
       .catch((error) => {
         console.error('Error fetching jobs:', error);
+        alert('Dear teacher please run your server right click job-finder-backend terminal then write , "node server.js"');
       });
   }, []);
 
