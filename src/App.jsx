@@ -9,6 +9,8 @@ import News from './components/News';
 import HeroPage from './pages/HeroPage ';
 import ContactUs from './pages/ContactUs';
 import Footer from './components/Footer';
+import SignIn from './pages/SignIn';
+import SignUp from './pages/SignUp';
 
 const App = () => {
   return (
@@ -21,6 +23,8 @@ const App = () => {
         <Route path="/services" element={<Services />} />
         <Route path="/news" element={<News />} />
         <Route path="/contact" element={<ContactUs />} />
+        <Route path="/login" element={<SignIn />} />
+        <Route path="/signup" element={<SignUp />} />
       </Routes>
       <Footer />
     </Router>
