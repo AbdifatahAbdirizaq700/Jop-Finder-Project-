@@ -15,15 +15,14 @@ const App = () => {
     <Router>
       <Header />
       <HeroPage />
+      <Statistics />
       <Routes>
         <Route path="/" element={<HomePage />} />
-        <Route path="/statistics" element={<Statistics />} />
         <Route path="/services" element={<Services />} />
         <Route path="/news" element={<News />} />
         <Route path="/contact" element={<ContactUs />} />
       </Routes>
-    <Footer />
-
+      <Footer />
     </Router>
   );
 };

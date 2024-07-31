@@ -1,6 +1,6 @@
 // src/components/JobList.jsx
 import React from 'react';
-import JobItem from './JobItem';
+import JobItem from './components/JobItem';
 
 const JobList = ({ jobs, onJobClick, onSaveJob }) => {
   return (
