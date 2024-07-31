@@ -4,7 +4,7 @@ const cors = require('cors');
 const app = express();
 const PORT = 5000;
 
-// Sample job data
+// Updated job data with new salary values
 let jobs = [
   {
     id: 1,
@@ -13,6 +13,7 @@ let jobs = [
     contract: 'Full Time',
     location: 'Remote',
     company: 'Dayon Tech',
+    salary: "$120,000 - $150,000" // Updated salary
   },
   {
     id: 2,
@@ -21,6 +22,7 @@ let jobs = [
     contract: 'Part Time',
     location: 'Hybrid',
     company: 'Tech Solutions',
+    salary: "$90,000 - $110,000" // Updated salary
   },
   {
     id: 3,
@@ -29,6 +31,7 @@ let jobs = [
     contract: 'Internship',
     location: 'On-site',
     company: 'Creative Minds',
+    salary: "$70,000 - $90,000" // Updated salary
   },
   {
     id: 4,
@@ -37,6 +40,7 @@ let jobs = [
     contract: 'Full Time',
     location: 'Remote',
     company: 'Innovatech',
+    salary: "$130,000 - $160,000" // Updated salary
   },
   {
     id: 5,
@@ -45,6 +49,7 @@ let jobs = [
     contract: 'Freelance',
     location: 'Remote',
     company: 'Design Studio',
+    salary: "$100,000 - $130,000" // Updated salary
   },
   {
     id: 6,
@@ -53,6 +58,7 @@ let jobs = [
     contract: 'Full Time',
     location: 'On-site',
     company: 'Data Insights Inc.',
+    salary: "$140,000 - $180,000" // Updated salary
   },
   {
     id: 7,
@@ -61,6 +67,7 @@ let jobs = [
     contract: 'Full Time',
     location: 'Hybrid',
     company: 'CloudWorks',
+    salary: "$120,000 - $150,000" // Updated salary
   },
   {
     id: 8,
@@ -69,6 +76,7 @@ let jobs = [
     contract: 'Full Time',
     location: 'Remote',
     company: 'Backend Solutions',
+    salary: "$110,000 - $140,000" // Updated salary
   },
   {
     id: 9,
@@ -77,6 +85,7 @@ let jobs = [
     contract: 'Full Time',
     location: 'On-site',
     company: 'Product Innovations',
+    salary: "$130,000 - $160,000" // Updated salary
   },
   {
     id: 10,
@@ -85,6 +94,7 @@ let jobs = [
     contract: 'Part Time',
     location: 'Hybrid',
     company: 'Marketing Solutions',
+    salary: "$80,000 - $100,000" // Updated salary
   },
 ];
 

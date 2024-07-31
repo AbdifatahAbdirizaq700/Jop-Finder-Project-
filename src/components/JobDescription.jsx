@@ -11,6 +11,7 @@ const JobDescription = ({ job, onClose, onSave }) => {
       <div className="bg-white rounded-lg p-6 w-full max-w-lg">
         <h2 className="text-2xl font-bold mb-4">{job.title}</h2>
         <p className="mb-4">{job.description}</p>
+        <p className="mb-4 font-semibold text-gray-800">Salary: {job.salary}</p> {/* Display salary */}
         <button
           className="bg-blue-500 text-white px-4 py-2 rounded-lg hover:bg-blue-600 transition-colors duration-300"
           onClick={() => onSave(job)} // Pass job to onSave

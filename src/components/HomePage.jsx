@@ -23,7 +23,6 @@ const HomePage = () => {
       })
       .catch((error) => {
         console.error('Error fetching jobs:', error);
-        
       });
   }, []);
 
@@ -37,9 +36,8 @@ const HomePage = () => {
   const handleFilter = (filters) => {
     const filtered = jobs.filter((job) => {
       return (
-        (filters.contract ? job.contract === filters.contract : true) &&
-        (filters.location ? job.location.toLowerCase().includes(filters.location.toLowerCase()) : true) &&
-        (filters.company ? job.company.toLowerCase().includes(filters.company.toLowerCase()) : true)
+        (filters.contractType ? job.contract === filters.contractType : true) &&
+        (filters.location ? job.location.toLowerCase().includes(filters.location.toLowerCase()) : true)
       );
     });
     setFilteredJobs(filtered);
@@ -66,9 +64,9 @@ const HomePage = () => {
         <SearchBar onSearch={handleSearch} />
         <PopularSearches />
         {selectedJob && (
-          <JobDescription job={selectedJob} onClose={handleCloseDescription} />
+          <JobDescription job={selectedJob} onClose={handleCloseDescription} onSave={handleSaveJob} />
         )}
-        <JobList jobs={filteredJobs} onJobClick={handleJobClick} onSaveJob={handleSaveJob} />
+        <JobList jobs={filteredJobs} onJobClick={handleJobClick} />
       </div>
     </div>
   );
